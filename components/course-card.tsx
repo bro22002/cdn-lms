@@ -3,7 +3,7 @@ import Link from "next/link";
 import { BookOpen } from "lucide-react";
 
 import { IconBadge } from "@/components/icon-badge";
-import { formatPrice } from "@/lib/format";
+// import { formatPrice } from "@/lib/format";
 import { CourseProgress } from "@/components/course-progress";
 
 interface CourseCardProps {
@@ -59,7 +59,7 @@ export const CourseCard = ({
             />
           ) : (
             <p className="text-md md:text-sm font-medium text-slate-700">
-              {formatPrice(price)}
+              {/* {formatPrice(price)} */}
             </p>
           )}
         </div>
