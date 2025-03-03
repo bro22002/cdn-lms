@@ -5,15 +5,15 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 
 import { Button } from "@/components/ui/button";
-import { formatPrice } from "@/lib/format";
+// import { formatPrice } from "@/lib/format";
 
 interface CourseEnrollButtonProps {
-  price: number;
+  // price: number;
   courseId: string;
 }
 
 export const CourseEnrollButton = ({
-  price,
+  // price,
   courseId,
 }: CourseEnrollButtonProps) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -22,9 +22,11 @@ export const CourseEnrollButton = ({
     try {
       setIsLoading(true);
 
-      const response = await axios.post(`/api/courses/${courseId}/checkout`)
+      // const response = await axios.post(`/api/courses/${courseId}/checkout`)
+      await axios.post(`/api/courses/${courseId}/checkout`);
+      toast.success("Enrolled successfully!");
 
-      window.location.assign(response.data.url);
+      // window.location.assign(response.data.url);
     } catch {
       toast.error("Something went wrong");
     } finally {
@@ -39,7 +41,8 @@ export const CourseEnrollButton = ({
       size="sm"
       className="w-full md:w-auto"
     >
-      Enroll for {formatPrice(price)}
+      {/* Enroll for {formatPrice(price)} */}
+      Enroll
     </Button>
   )
 }
