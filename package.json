@@ -32,6 +32,7 @@
     "@uploadthing/react": "^5.5.0",
     "autoprefixer": "10.4.15",
     "axios": "^1.7.9",
+    "bcryptjs": "^3.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "cmdk": "^0.2.0",
@@ -62,6 +63,7 @@
     "zustand": "^4.4.1"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
     "prisma": "^5.22.0"
   }
 }
