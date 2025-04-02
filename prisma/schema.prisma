@@ -10,6 +10,38 @@ generator client {
   // previewFeatures = ["fullTextSearchPostgres"]
 }
 
+enum AccountType {
+  Student
+  Admin
+}
+
+model Account {
+  account_id        String @id @default(uuid())
+  account_firstname String
+  account_lastname  String
+  account_email     String @unique
+  account_password  String
+  account_type      AccountType @default(Student)
+  sessions          Session[]
+}
+
+model Session {
+  session_id String   @id @default(uuid())
+  account_id String
+  account Account @relation(fields: [account_id], references: [account_id])
+  token      String   @unique
+  expires_at DateTime
+}
+
+// model User {
+//   id         String   @id @default(cuid())
+//   username   String   @unique
+//   password   String   // This will store the hashed password
+//   salt       String   // Used for additional security in hashing
+//   createdAt  DateTime @default(now())
+//   updatedAt  DateTime @updatedAt
+// }
+
 model Course {
   id String @id @default(uuid())
   userId String
